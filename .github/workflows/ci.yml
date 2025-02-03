@@ -1,0 +1,21 @@
+name: Continuous integration
+
+on: push
+
+jobs:
+
+  ci:
+    runs-on: ubuntu-latest
+    steps:
+
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Init
+        run: make init
+
+      - name: Run style
+        run: make style
+
+      - name: Run tests
+        run: make test

@@ -1,0 +1,29 @@
+{
+    "id": "p_123456789",
+    "name": "iPhone 16",
+    "category": "Smartphones",
+    "description": "The iPhone 16 is a smartphone, model of the eighteenth generation of the iPhone",
+    "condition": "defective",
+    "specifications": {
+        "color": "black",
+        "weight": {
+            "value": 170,
+            "unit": "g"
+        },
+        "dimensions": {
+            "width": {
+                "value": 71.6,
+                "unit": "mm"
+            },
+            "height": {
+                "value": 147.6,
+                "unit": "mm"
+            },
+            "depth": {
+                "value": 7.8,
+                "unit": "mm"
+            }
+        }
+    },
+    "availability": true
+}

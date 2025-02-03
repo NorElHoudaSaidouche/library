@@ -1,0 +1,170 @@
+{
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "title": "Product Characterization",
+    "type": "object",
+    "properties": {
+        "id": {
+            "type": "string",
+            "description": "The unique identifier for the product",
+            "pattern": "^p_\\d{9}$"
+        },
+        "name": {
+            "type": "string",
+            "description": "The product name"
+        },
+        "category": {
+            "type": "string",
+            "description": "The product category"
+        },
+        "description": {
+            "type": "string",
+            "description": "The detailed description of the product"
+        },
+        "condition": {
+            "type": "string",
+            "description": "The product condition",
+            "enum": [
+                "new",
+                "reconditioned",
+                "used"
+            ]
+        },
+        "specifications": {
+            "type": "object",
+            "description": "The specifications of the product",
+            "properties": {
+                "color": {
+                    "type": "string",
+                    "description": "The color of the product"
+                },
+                "weight": {
+                    "properties": {
+                        "value": {
+                            "type": "number",
+                            "description": "The weight value"
+                        },
+                        "unit": {
+                            "type": "string",
+                            "description": "The calculation unit of the weight",
+                            "enum": [
+                                "g",
+                                "kg",
+                                "lb"
+                            ]
+                        }
+                    }
+                },
+                "dimensions": {
+                    "type": "object",
+                    "properties": {
+                        "width": {
+                            "type": "object",
+                            "description": "The width of the product",
+                            "properties": {
+                                "value": {
+                                    "type": "number",
+                                    "description": "The width's value"
+                                },
+                                "unit": {
+                                    "type": "string",
+                                    "description": "The calculation unit of the width",
+                                    "enum": [
+                                        "mm",
+                                        "cm",
+                                        "m",
+                                        "in",
+                                        "ft"
+                                    ]
+                                }
+                            },
+                            "required": [
+                                "value",
+                                "unit"
+                            ]
+                        },
+                        "height": {
+                            "type": "object",
+                            "description": "The height of the product",
+                            "properties": {
+                                "value": {
+                                    "type": "number",
+                                    "description": "The height's value"
+                                },
+                                "unit": {
+                                    "type": "string",
+                                    "description": "The calculation unit of the height",
+                                    "enum": [
+                                        "mm",
+                                        "mm",
+                                        "cm",
+                                        "m",
+                                        "in",
+                                        "ft"
+                                    ]
+                                }
+                            },
+                            "required": [
+                                "value",
+                                "unit"
+                            ]
+                        },
+                        "depth": {
+                            "type": "object",
+                            "description": "The depth of the product",
+                            "properties": {
+                                "value": {
+                                    "type": "number",
+                                    "description": "The depth's value"
+                                },
+                                "unit": {
+                                    "type": "string",
+                                    "description": "The calculation unit of the depth",
+                                    "enum": [
+                                        "mm",
+                                        "cm",
+                                        "m",
+                                        "in",
+                                        "ft"
+                                    ]
+                                }
+                            },
+                            "required": [
+                                "value",
+                                "unit"
+                            ]
+                        }
+                    },
+                    "required": [
+                        "width",
+                        "height"
+                    ]
+                }
+            }
+        },
+        "availability": {
+            "type": "boolean",
+            "description": "if the product is available or not"
+        },
+        "price": {
+            "type": "object",
+            "properties": {
+                "value": {
+                    "type": "number",
+                    "description": "The product price"
+                },
+                "unit": {
+                    "type": "string",
+                    "description": "The production currency",
+                    "enum": ["eur", "usd"]
+
+                }
+            }
+        }
+    },
+    "required": [
+        "id",
+        "name",
+        "category",
+        "price"
+    ]
+}
